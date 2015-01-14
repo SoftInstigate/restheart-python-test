@@ -9,4 +9,4 @@ _DATABASE = '/mytestdb'
 DATABASE_URL = _BASE_URL + _DATABASE
 COLLECTION_URL = DATABASE_URL + "/testcollection"
 
-HEADERS = {'Content-type': 'application/hal+json'}
+HEADERS = {'Content-type': 'application/hal+json', 'Accept': '*/*'}
