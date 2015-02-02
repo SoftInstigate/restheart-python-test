@@ -1,10 +1,11 @@
+# coding=utf-8
 # --------------------------------------------------------------------
 # RESTHeart - Python integration test suite
 #
 # A set of integration tests showing how to interact
 # with RESTHeart's API via Python.
 # It's more ore less the Python version of:
-#    http://restheart.org/docs/walkthrough.html
+# http://restheart.org/docs/walkthrough.html
 #
 # Note: you must start MongoDB +  RESTHeart before
 # the easiest way is to use Vagrant:
@@ -44,6 +45,13 @@ class TestBasicRESTHeartIntegration(unittest.TestCase):
         r = restutils.delete_resource(COLLECTION_URL)
         self.assertEquals(r.status_code, 204)
         print("++ tearDown")
+
+    def test_post_chinese_document(self):
+        print("+++ test_post_chinese_document")
+        json_str = '{"chinese": "参展商与观众同赞展会成效，认为有助广拓人脉、开创商机" }'
+        payload = json.loads(json_str)
+        r = restutils.post_resource(COLLECTION_URL, json=payload)
+        self.assertEquals(r.status_code, 201)
 
     # @unittest.skip('+++ skipping test_post_doc_with_array\n')
     def test_post_doc_with_array(self):

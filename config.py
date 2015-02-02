@@ -5,7 +5,7 @@
 __author__ = 'mturatti'
 
 _BASE_URL = 'http://localhost:8080'
-_DATABASE = '/mytestdb'
+_DATABASE = '/testdb'
 DATABASE_URL = _BASE_URL + _DATABASE
 COLLECTION_URL = DATABASE_URL + "/testcollection"
 
